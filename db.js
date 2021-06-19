@@ -22,7 +22,7 @@ function loadSelectedTickets(filterClicked){
       allTickets = JSON.parse(allTickets);
       for (let i = 0; i < allTickets.length; i++) {
         let ticketinfoObject = allTickets[i];
-        if(ticketinfoObject.ticketFilter == filterClicked){
+        if(ticketinfoObject.ticketfilter == filterClicked){
           appendTicket(ticketinfoObject);
         }
       }
@@ -72,8 +72,8 @@ function appendTicket(ticketinfoObject){
 
       let allTickets = JSON.parse(myDB.getItem("allTickets"));
       for(let i=0 ; i<allTickets.length ; i++){
-        if(allTickets[i].ticketId == ticketId){
-          allTickets[i].ticketFilter = newFilter;
+        if(allTickets[i].ticketID == ticketID){
+          allTickets[i].ticketfilter = newFilter;
         }
       }
       myDB.setItem("allTickets" , JSON.stringify(allTickets));
@@ -83,7 +83,7 @@ function appendTicket(ticketinfoObject){
     
     deleteTicketBtn.addEventListener("click" , function(e){
         ticketDiv.remove(); // ui se hata dega
-        deleteTicketFromDb(ticketId);
+        deleteFromDb(ticketID);
     })
 
 
